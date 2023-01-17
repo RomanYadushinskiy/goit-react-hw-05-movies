@@ -7,7 +7,7 @@ export const MovieSearch = ({ setSearchParams }) => {
     setQuery(e.target.value);
   }
 
- const onSubmit = (e) => {
+ const onSubmit = e => {
     e.preventDefault();
     setSearchParams(query ? { query: query.trim() } : {});
     setQuery('');
