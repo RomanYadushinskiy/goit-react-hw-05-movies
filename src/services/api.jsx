@@ -9,8 +9,8 @@ export const trendingMovie = async () => {
 };
 
 export const searchMovie = async query => {
-  const { data } = await axios.get(`/search/movie?api_key=${API_KEY}&query=${query}language=en-US&page=1&include_adult=false`);
-  return data;
+  const { data } = await axios.get(`/search/movie?api_key=${API_KEY}&query=${query}&language=en-US&page=1&include_adult=false`);
+  return data.results;
 };
 
 export const detailsMovie = async id => {
@@ -25,14 +25,6 @@ export const creditsMovie = async id => {
 
 export const reviewsMovie = async id => {
   const { data } = await axios.get(`movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`);
-  return data;
+  return data.results;
 };
 
-// key = 217a4cbe2f726447c9a39cfed7ff9ffe
-
-// axios.defaults.baseURL = 'https://pixabay.com/api/';
-
-// export const fetchImages = async (value, page) => {
-//   const { data } = await axios.get(`?q=${value}&page=${page}&key=31303578-edf23fcb2ab8348590995fcb8&image_type=photo&orientation=horizontal&per_page=12`);
-//   return data;
-// };

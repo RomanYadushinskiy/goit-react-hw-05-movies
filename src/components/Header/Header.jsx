@@ -8,16 +8,18 @@ const headerItems = [
 
 export const Header = () => {
     return (
-        <nav>
-            <ul>
+        <nav className={styles.nav}>
+            <ul className={styles.navList}>
                 {headerItems.map((headerItem) => {
                     return (
                         <li key={headerItem.title}>
                             <NavLink
                                 className={({ isActive }) => isActive ? styles.nav_active : null}
                                 to={headerItem.to}>{headerItem.title}</NavLink>
-                    </li>
-                    )
+                            <hr />
+                        </li>
+                        
+                    );
                     
                 })}
             </ul>

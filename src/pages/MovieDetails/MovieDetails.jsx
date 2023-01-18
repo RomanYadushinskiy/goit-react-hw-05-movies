@@ -1,4 +1,4 @@
-import { useState, useEffect, } from "react";
+import { useState, useEffect, Suspense} from "react";
 import { useParams, useNavigate, useLocation, Link, Outlet} from "react-router-dom";
 import { detailsMovie } from 'services/api';
 
@@ -17,23 +17,40 @@ export const MovieDetails = () => {
     }
 
     console.log(movieDetails)
+    
+    const { poster_path, title, release_date, vote_average, overview, genres } = movieDetails;
     return (
         <div>
             <div>
                 <button onClick={() => navigate(-1)}>Go Back</button>
                 <div>
-                    <img src={`https://image.tmdb.org/t/p/w300${movieDetails.poster_path}`} alt={movieDetails.title} />
+                    <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt={title} />
+                    
+                    <hr />
+                        
                 </div>
                 <div>
-                    <hr />
-                    <h3>movie info</h3>
+                        <h2>{movieDetails.title} ({release_date})</h2>
+                        <p>Vote Average: {vote_average}</p>
+                        <h3>Overview</h3>
+                        <p>{overview}</p>
+                        <h3>Genres</h3>
+                        {genres.map(genre => (
+                            <p key={genre.id}>{genre.name}</p>
+                        )
+                        )}
+                </div>
+                <div>
+                    <h3>Additional information</h3>
                     <Link to="cast" state={{ from: location?.state?.from }}>Cast</Link>
                 </div>
                 <div>
                     <Link to="reviews" state={{ from: location?.state?.from }}>Reviews</Link>
                 </div>
             </div>
-            <Outlet/>
+            
+              <Outlet />
+            
         </div>
     );
 };
