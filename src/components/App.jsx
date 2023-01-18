@@ -5,9 +5,17 @@ import { Reviews } from "./Reviews/Reviews";
 import { Movies } from '../pages/Movies/Movies';
 import { Home } from '../pages/Home/Home';
 import { Layout } from "./Layout/Layout";
-import { NotFound } from "./NotFound/NotFound";
-// import { Header } from "./Header/Header";
-// import { MovieSearch } from "pages/Movies/MovieSearch";
+
+// import { Route, Routes } from 'react-router-dom';
+// import { lazy } from 'react';
+
+// const Layout = lazy(() => import('./Layout/Layout'));
+// const Home = lazy(() => import('../pages/Home/Home'));
+// const Movies = lazy(() => import('../pages/Movies/Movies'));
+// const MovieDetails = lazy(() => import('../pages/MovieDetails/MovieDetails'));
+// const Cast = lazy(() => import('./Cast/Cast'));
+// const Reviews = lazy(() => import('./Reviews/Reviews'));
+
 
 export const App = () => {
   return (
@@ -30,9 +38,6 @@ export const App = () => {
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
-          
-          
-          {/* <Route path="*" element={<NotFound />} />  */}
         </Route>
       </Routes>
       

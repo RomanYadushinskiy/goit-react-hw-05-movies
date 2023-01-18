@@ -1,8 +1,8 @@
 import { MovieSearch } from "./MovieSearch";
 import { MovieList } from "./MovieList";
 import { searchMovie } from 'services/api';
-import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useState, useEffect, Suspense } from 'react';
+import { Outlet, useSearchParams } from 'react-router-dom';
 
 export const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -20,13 +20,15 @@ export const Movies = () => {
       .catch(err => console.log(err))
   }, [query]);
     
-    
-
   return (
     <>
       <MovieSearch setSearchParams={setSearchParams} />
       <MovieList movies={movies} />
+      <Suspense fallback={null}>
+        <Outlet/>
+      </Suspense>
     </>
+    
   );
 };
 
