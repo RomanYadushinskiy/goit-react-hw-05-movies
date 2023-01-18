@@ -22,7 +22,7 @@ export const MovieDetails = () => {
     return (
         <div>
             <div>
-                <button onClick={() => navigate(-1)}>Go Back</button>
+                <button onClick={() => navigate(-1)}>Go bBack</button>
                 <div>
                     <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt={title} />
                     
