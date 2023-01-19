@@ -18,7 +18,7 @@ const Home = () => {
                 {movies.map(({ id, title, name}) => {
                     return (
                         <li key={id}>
-                            <Link to={`movies/${id}`} state={{from:location}}>{title || name}</Link>
+                            <Link to={`movies/${id}`} state={{from: location}}>{title || name}</Link>
                         </li>
                     )
                 })}
