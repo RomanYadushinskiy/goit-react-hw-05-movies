@@ -3,16 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import { trendingMovie } from "services/api";
 
 
-export const Home = () => {
+const Home = () => {
     const location = useLocation();
     const [movies, setMovies] = useState([]);
     
     useEffect(() => {
-    trendingMovie()
-      .then(resp => {
-          setMovies(resp.results);
-      })
-      .catch(err => console.log(err))
+        trendingMovie().then(setMovies)
   }, []);
     
     return (
@@ -31,3 +27,4 @@ export const Home = () => {
     );
 };
 
+export default Home

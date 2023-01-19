@@ -3,7 +3,7 @@ import { useParams, useNavigate, useLocation, Link, Outlet} from "react-router-d
 // import { detailsMovie } from 'services/api';
 import * as API from 'services/api';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
     const { movieId } = useParams();
     const navigate = useNavigate();
     const [movieDetails, setMovieDetails] = useState([]);
@@ -17,13 +17,11 @@ export const MovieDetails = () => {
         return null
     }
 
-    console.log(movieDetails)
-    
     const { poster_path, title, release_date, vote_average, overview, genres } = movieDetails;
     return (
         <div>
             <div>
-                <button onClick={() => navigate(-1)}>Go bBack</button>
+                <button onClick={() => navigate(-1)}>Go Back</button>
                 <div>
                     <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt={title} />
                     
@@ -60,3 +58,5 @@ export const MovieDetails = () => {
         </div>
     );
 };
+
+export default MovieDetails

@@ -1,34 +1,26 @@
 import { Route, Routes } from "react-router-dom";
-import { MovieDetails } from '../pages/MovieDetails/MovieDetails';
-import { Cast } from "./Cast/Cast";
-import { Reviews } from "./Reviews/Reviews";
-import { Movies } from '../pages/Movies/Movies';
-import { Home } from '../pages/Home/Home';
-import { Layout } from "./Layout/Layout";
+// import { MovieDetails } from '../pages/MovieDetails/MovieDetails';
+// import { Cast } from "./Cast/Cast";
+// import { Reviews } from "./Reviews/Reviews";
+// import { Movies } from '../pages/Movies/Movies';
+// import { Home } from '../pages/Home/Home';
+// import { Layout } from "./Layout/Layout";
 
 // import { Route, Routes } from 'react-router-dom';
-// import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 
-// const Layout = lazy(() => import('./Layout/Layout'));
-// const Home = lazy(() => import('../pages/Home/Home'));
-// const Movies = lazy(() => import('../pages/Movies/Movies'));
-// const MovieDetails = lazy(() => import('../pages/MovieDetails/MovieDetails'));
-// const Cast = lazy(() => import('./Cast/Cast'));
-// const Reviews = lazy(() => import('./Reviews/Reviews'));
+const Layout = lazy(() => import('./Layout/Layout'));
+const Home = lazy(() => import('../pages/Home/Home'));
+const Movies = lazy(() => import('../pages/Movies/Movies'));
+const MovieDetails = lazy(() => import('../pages/MovieDetails/MovieDetails'));
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
 
 
 export const App = () => {
   return (
-    <div
-      // style={{
-      //   height: '100vh',
-      //   display: 'flex',
-      //   justifyContent: 'center',
-      //   alignItems: 'center',
-      //   fontSize: 20,
-      //   color: '#010101'
-      // }}
-    >
+    <div>
+      <Suspense fallback={<h1>Loading...</h1>}>
       <Routes>
         
         <Route path="/" element={<Layout />}>
@@ -40,7 +32,7 @@ export const App = () => {
           </Route>
         </Route>
       </Routes>
-      
+      </Suspense>
     </div>
   );
 };

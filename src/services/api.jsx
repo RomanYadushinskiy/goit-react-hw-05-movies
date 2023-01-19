@@ -5,7 +5,7 @@ const API_KEY = '217a4cbe2f726447c9a39cfed7ff9ffe';
 
 export const trendingMovie = async () => {
   const { data } = await axios.get(`/trending/all/day?api_key=${API_KEY}`);
-  return data;
+  return data.results;
 };
 
 export const searchMovie = async query => {
