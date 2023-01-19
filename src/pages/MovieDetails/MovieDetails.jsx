@@ -1,5 +1,5 @@
 import { useState, useEffect, Suspense } from "react";
-import { useParams, useNavigate, useLocation, Link, Outlet} from "react-router-dom";
+import { useParams, useLocation, Link, Outlet} from "react-router-dom";
 // import { detailsMovie } from 'services/api';
 import * as API from 'services/api';
 import styles from './MovieDetails.module.css';
